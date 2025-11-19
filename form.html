@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de form avec js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        *{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url("images/wp.jpg");
+    font-family: "Open sabs" sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    overflow: hidden;
+}
+.container{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 20px 60px rgba(9, 97, 179, 0.5);
+    width: 400px;
+    max-width: 100%;
+}
+header{
+    background: #f7f7f7;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 40px;
+}
+header h2{
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+}
+.form{
+    padding: 30px 40px;
+}
+.form-control{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+ label{
+    display: inline-block;
+    margin-bottom: 5px;
+}
+ input{
+    border:  2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+}
+
+
+a ,button{
+    background: #1ec36dd9;
+    border: 2px solid #1ec36dd9;
+    color: #fff;
+    display: block;
+    font-family: inherit;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    text-align: center;
+}
+
+
+    </style>
+    <script>
+        function alpha(ch){
+	i=0;
+	ch=ch.toUpperCase();
+	ok=true;
+	do{
+		if (("A"<=ch.charAt(i)) &&(ch.charAt(i)<="Z")){
+		i++;}
+		else{
+			ok=false;
+		}
+	}
+	while((i<=ch.length-1)&&(ok==true))
+	return ok;
+}
+function verif1(){
+    nom=document.getElementById("t1").value;
+    if (nom=="" || !alpha(nom)){
+        alert("nom invalide");
+        return false;
+    }
+    dis=document.getElementById("t2").value;
+    if (dis.indexOf("#")=0 ){
+        alert("discord tag invalide");
+        return false
+    }
+    id=document.getElementById("t3").value;
+    if(id.length!=18 || isNaN(id)){
+        alert("discord id invalide");
+        return false;
+    }
+    ad=document.getElementById("t4").value;
+    if (
+          ad.indexOf(".") == -1 ||
+          ad.indexOf("@") == -1 ||
+          ad.indexOf(".") < ad.indexOf("@")
+        ) {
+          alert("adresse email invalide");
+          return false;
+        }
+}
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2></h2>
+        </div>
+        <form class="form" id="form" action="payment.html" onsubmit="return verif1()">
+            <div class="form-control ">
+                <label for="">Nom d'utilisateur</label>
+                <input type="text" name="T1" size="20" id="t1">
+
+            </div>
+            <div class="form-control ">
+                <label for="">discord name & tag :</label>
+                <input type="text" name="T2" size="20" id="t2">
+
+            </div>
+            <div class="form-control">
+                <label for="">your discord id</label>
+                <input type="text" name="T3" size="20"id="t3">                
+            </div>
+            <div class="form-control">
+                <label for="">Adresse email:</label>
+                <input type="email" name="t4" id="t4">                
+            </div>
+            <div class="form-control">
+                <label for="">join discord server </label>
+                <a href="https://discord.gg/AXBxY3tTHp"> <i class="fas fa-user-plus"></i> join DC</a>
+            </div>
+            <button type="submit">go to payment page </button>
+        </form>
+    </div>
+</body>
+</html>

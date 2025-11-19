@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" >
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dat shop</title>
+  <script src="script.js"></script>
+<link rel="stylesheet" href="cart.css">
+  <script>
+function add() {
+    alert("your order added to cart")
+}
+function not() {
+    alert("not ready yet")
+}
+  function playaudio(t){ document.getElementById(t).play()
+  }
+  function stopaudio(p){ document.getElementById(p).pause()
+  }
+  </script>
+</head>
+<body>
+    <header class="headdino">    <h2>dinosaures shop</h2>
+        <nav class="nav">
+            
+            <a onclick="hide()" href="#shopping-cart"> <i class="fas fa-shopping-cart"></i> card</a>
+            <a href="index.html"> ⏪</a>
+        </nav>
+        
+    </header>
+<section class="shop" >
+    <h2>dinosaures shop</h2>
+    <div class="content">
+      <div class="card" >
+          <div onmouseover='playaudio("v1")' onmouseout='stopaudio("v1")' >
+              <img src="images/giga.jpeg" alt="">
+          </div>
+          <div class="info" >
+            <audio hidden id="v1" src='images/Gigasound.ogg'  controls></audio>
+
+              <h3>  giganotosaurus</h3>
+              <p id="par"><span>price : </span> 150k (probot credit) 
+              </p><p id="par"> or 2.5 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄"  onclick="myfunction('giganotosaurus',2.5)"> 
+          </div>
+      </div>
+    </div>
+    <div class="content">
+        <div class="card" >
+            <div onmouseover='playaudio("v2")' onmouseout='stopaudio("v2")' >
+                <img src="images/quedzel.jpeg" alt="">
+            </div>
+            <div class="info" >
+                <audio hidden id="v2" src='images/Quetzal.OGG'  controls></audio>
+
+                <h3> QUEDZEL</h3>
+                <p id="par"><span>price : </span> 120k (probot credit) 
+                </p><p id="par"> or 2 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄"  onclick="myfunction('quedzel',2)"> 
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card" >
+            <div onmouseover='playaudio("v3")' onmouseout='stopaudio("v3")'>
+                <img src="images/tape.jpeg" alt="">
+            </div>
+            <div class="info" >
+                <audio hidden id="v3" src='images/Tapejarasound.ogg'  controls></audio>
+
+                <h3> tapejara</h3>
+                <p id="par"><span>price : </span> 70K (probot credit) 
+                </p><p id="par"> or 1 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄"  onclick="myfunction('tapejara',1)"> 
+            </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="card" >
+            <div onmouseover='playaudio("v3")' onmouseout='stopaudio("v3")'>
+                <img src="images/tape2.jpeg" alt="">
+            </div>
+            <div class="info" >
+                <h3> tapejara</h3>
+                <p id="par"><span>price : </span> 70K (probot credit) 
+                </p><p id="par"> or 1 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄"  onclick="myfunction('tapejara',1)"> 
+            </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="card" >
+            <div onmouseover='playaudio("v4")' onmouseout='stopaudio("v4")' >
+                <img src="images/thery.jpeg" alt="">
+            </div>
+            <div class="info" >
+                <audio hidden id="v4" src='images/Therizinosound.ogg'  controls></audio>
+
+                <h3> therizinosaurus</h3>
+                <p id="par"><span>price : </span> 100k (probot credit) 
+                </p><p id="par"> or 1.5 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄" onclick="myfunction('therizinosaurus',1.5)"> 
+            </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="card" >
+            <div onmouseover='playaudio("v5")' onmouseout='stopaudio("v5")''>
+                <img src="images/argy.jpeg" alt="">
+            </div>
+            <div class="info" >
+                <audio hidden id="v5" src='images/Argentavissound.ogg'  controls></audio>
+                <h3> argentavis</h3>
+                <p id="par"><span>price : </span> 110K (probot credit) for twice
+                </p><p id="par"> or 1 Dollar </p>
+               <input class="btn-shop" type="button" value="add me to shooping cart 😁🙄"  onclick="myfunction('argentavis',1)"> 
+            </div>
+        </div>
+      </div>
+      <div id="shopping-cart" hidden dir="ltr">
+        <h2>your shopping Cart</h2>
+        <table id="tab">
+          <thead>
+            <tr>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody">
+          </tbody>
+        </table>
+        <hr>
+        <table id="tab2" >
+          <tr>
+            <td>Items</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td>x <span id="quantity">0</span></td>
+           
+            <td>$<span id="total">0</span></td>
+          </tr></table>
+
+          
+        <div class="cartbtn">  
+          <a id="btn" onclick="delet()">delete</a>
+<a id="btn" href="form.html">purchase</a>
+        </div>
+      </div>
+</section>
+
+  
+</body>
+</html>

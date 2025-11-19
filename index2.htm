@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dat Shop | Choose Your Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="index2.css">
+</head>
+<body>
+    <header class="portal-header">
+        <a href="index.html" class="brand">dat shop</a>
+        <nav>
+            <a href="index.html">home</a>
+            <a href="shopdino.html" target="_blank">dino store</a>
+            <a href="premiumshop.html" target="_blank">premium store</a>
+        </nav>
+    </header>
+
+    <main class="portal-main">
+        <section class="portal-hero">
+            <p class="eyebrow">market hub</p>
+            <h1>Pick a store, preview it live, and start trading faster.</h1>
+            <p class="lead">
+                Use the cards below to switch between our Dino Market and Premium Shop. The live preview updates instantly,
+                so you always know where you are shopping before diving in.
+            </p>
+            <div class="hero-actions">
+                <button class="pill" data-shop="shopdino.html" data-label="Dino Market">
+                    <i class="fas fa-dragon"></i>
+                    Load Dino Market
+                </button>
+                <button class="pill pill-secondary" data-shop="premiumshop.html" data-label="Premium Shop">
+                    <i class="fas fa-gem"></i>
+                    Load Premium Shop
+                </button>
+            </div>
+        </section>
+
+        <section class="portal-grid">
+            <article class="portal-card">
+                <div class="icon"><i class="fas fa-feather"></i></div>
+                <h3>Dino Market</h3>
+                <p>Mutated gigas, boss squads, and cryo-ready flyers curated for PvE and PvP.</p>
+                <ul>
+                    <li>• Audio previews for each tame</li>
+                    <li>• Add dinos to cart instantly</li>
+                    <li>• Discord-ready pricing</li>
+                </ul>
+                <button class="card-btn" data-shop="shopdino.html" data-label="Dino Market">Preview in panel</button>
+            </article>
+            <article class="portal-card">
+                <div class="icon"><i class="fas fa-crown"></i></div>
+                <h3>Premium Shop</h3>
+                <p>Amber bundles, pheromones, cosmetics, and seasonal kits delivered in minutes.</p>
+                <ul>
+                    <li>• Multi-currency pricing</li>
+                    <li>• Cart with item tracking</li>
+                    <li>• Direct purchase form</li>
+                </ul>
+                <button class="card-btn" data-shop="premiumshop.html" data-label="Premium Shop">Preview in panel</button>
+            </article>
+        </section>
+
+        <section class="preview-panel">
+            <div class="preview-header">
+                <div>
+                    <p class="eyebrow small">live preview</p>
+                    <h3 id="preview-label">Start Page</h3>
+                </div>
+                <div class="preview-actions">
+                    <a href="shopdino.html" target="_blank" class="pill pill-secondary">
+                        <i class="fas fa-external-link-alt"></i>
+                        open dino store
+                    </a>
+                    <a href="premiumshop.html" target="_blank" class="pill">
+                        <i class="fas fa-external-link-alt"></i>
+                        open premium store
+                    </a>
+                </div>
+            </div>
+            <iframe id="shop-frame" src="premier.html" title="Shop preview"></iframe>
+        </section>
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('[data-shop]');
+        const frame = document.getElementById('shop-frame');
+        const label = document.getElementById('preview-label');
+
+        function setPreview(src, text) {
+            if (frame) {
+                frame.src = src;
+            }
+            if (label) {
+                label.textContent = text;
+            }
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setPreview(btn.dataset.shop, btn.dataset.label);
+            });
+        });
+    </script>
+</body>
+</html>
